@@ -25,6 +25,11 @@ export interface Ability {
   slot: number;
 }
 
+export interface IResult {
+  name: string;
+  url: string;
+}
+
 export interface Ability2 {
   name: string;
   url: string;

@@ -21,7 +21,7 @@ export default function PaginationControlled() {
   };
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} sx={{marginTop:"50px"}}>
       <Typography sx={{display:"flex",justifyContent:"center"}}>Page: {page}</Typography>
       <Pagination sx={{display:"flex",justifyContent:"center"}} count={10} page={page} onChange={handleChange} />
     </Stack>

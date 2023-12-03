@@ -1,5 +1,5 @@
 // import Axios from "axios";
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // import { buildWebStorage, setupCache } from "axios-cache-interceptor";
 // import { IPokemonDetail } from "./types";
 
@@ -25,13 +25,26 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // }
 
 // export default PokemonService;
-export const pokemonApi = createApi({
-  reducerPath: 'pokemonApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' }),
+export const pokemonList = createApi({
+  reducerPath: "pokemonList",
+  baseQuery: fetchBaseQuery({ baseUrl: "https://pokeapi.co/api/v2/" }),
   endpoints: (builder) => ({
-    getPokemonByName: builder.query({
-      query: (name) => `pokemon/${name}`,
+    getPokemonList: builder.query({
+      query: (name) => `${name}`,
+      
     }),
   }),
-})
-export const { useGetPokemonByNameQuery } = pokemonApi
+});
+
+export const pokemonApi = createApi({
+  reducerPath: "pokemonApi",
+  baseQuery: fetchBaseQuery({ baseUrl: "https://pokeapi.co/api/v2/pokemon/" }),
+  endpoints: (builder) => ({
+    getPokemonByName: builder.query({
+      query: (name) => `${name}`,
+    }),
+  }),
+});
+
+export const { useGetPokemonByNameQuery } = pokemonApi;
+export const { useGetPokemonListQuery } = pokemonList;

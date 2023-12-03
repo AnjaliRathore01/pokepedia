@@ -1,16 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 // import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { pokemonApi } from "./pokemon/service";
+import { pokemonApi, pokemonList } from "./pokemon/service";
 import { setupListeners } from "@reduxjs/toolkit/query";
 // import Pokemon from "./pokemon/reducer";
 
 export const store = configureStore({
   reducer: {
+    [pokemonList.reducerPath]: pokemonList.reducer,
     [pokemonApi.reducerPath]: pokemonApi.reducer,
+    
   },
 
   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware().concat(pokemonApi.middleware),
+  getDefaultMiddleware().concat(pokemonApi.middleware,pokemonList.middleware),
 });
 
 setupListeners(store.dispatch)

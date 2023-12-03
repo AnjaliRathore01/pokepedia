@@ -1,4 +1,4 @@
-import MediaCard from "./card";
+import MediaCard from "./cardlist";
 import ListHeader from "./header";
 import PaginationControlled from "./pagination";
 
